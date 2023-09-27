@@ -16,27 +16,41 @@ const transpose = function (matrix) {
     return transposedMatrix;
   }
 
+const makeWord = function(array) {
+    return array.map(line => line.join(""));
+};
 
+const reversed = function(array) { //doesnt work
+    array.forEach(element => {
+        element.reverse();
+    });
+    return array;
+};
 
 const wordSearch = (letters, word) => { 
-    const horizontalJoin = letters.map(ls => ls.join(""));
-    const combinedArrays = horizontalJoin.concat(transpose(letters).map(ls => ls.join('')));
+    const horizontalJoin = makeWord(letters);
+    const verticalJoin = makeWord(transpose(letters));
+
+    //console.log('rev', reversed(letters));
+
+    //const horizontalJoinReversed = makeWord(reversed(letters));
+    //const verticalJoinReversed = makeWord(transpose(reversed(letters)));
+
+    //console.log("horizrev", horizontalJoinReversed);
+    //console.log('vert rev', verticalJoinReversed);
+
+    const combinedArrays = horizontalJoin.concat(verticalJoin);//.concat(horizontalJoinReversed).concat(verticalJoinReversed);
     //console.log(combinedArrays);
-    //console.log(horizontalJoin);
+
     for (const line of combinedArrays) {
         if (line.includes(word)) {
             return true;
         }
     }
-
-    // for (const line of verticalJoin) {
-    //     if (line.includes(word)) {
-    //         return true;
-    //     }
-    // }
-
     return false;
 };
+
+
 
 module.exports = wordSearch
 

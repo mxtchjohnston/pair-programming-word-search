@@ -22,15 +22,28 @@ describe("#wordSearch()", function() {
     assert.isFalse(result);
   });
 
-  it("should return true if the word is present", function() {
+  it("should return true if the Seilfield is present", function() {
     const result = wordSearch(array, 'SEINFELD')
 
     assert.isTrue(result);
   });
 
-  it("should return true if the word is present", function() {
+  it("should return true if the Larry is present", function() {
     const result = wordSearch(array, 'LARRY')
 
     assert.isTrue(result);
   });
+
+  // it("should return true if the west is present", function() {
+  //   const result = wordSearch(array, 'WEST')
+
+  //   assert.isTrue(result);
+  // });
+
+  // it("should return true if the vet is present", function() {
+  //   const result = wordSearch(array, 'VET')
+
+  //   assert.isTrue(result);
+  // });
+  
 });
